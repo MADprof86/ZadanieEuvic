@@ -13,7 +13,7 @@ namespace ZadanieEuvic
     /// </summary>
     public class Contact : IComparable<Contact>, IGiveNameSurname
     {
-        public static List<string> listOfPolishNames = new List<string>();
+        private static List<string> listOfPolishNames = new List<string>();
         private string name;
         private string surname;
         /// <summary>
