@@ -19,9 +19,11 @@ namespace ZadanieEuvic
         /// <summary>
         /// Contact class with special list to determine if the string is a polish name
         /// </summary>
-        Contact()
+       
+
+        public Contact(string inputNameSurname) 
         {
-            if (listOfPolishNames.Count() == 0)
+            if (listOfPolishNames.Count() < 1)
             {
                 try
                 {
@@ -39,10 +41,6 @@ namespace ZadanieEuvic
                     Console.ReadKey();
                 }
             }
-        }
-
-        public Contact(string inputNameSurname) : base()
-        {
             SetContactNameSurname(inputNameSurname);
         }
         /// <summary>
@@ -51,11 +49,8 @@ namespace ZadanieEuvic
         /// <param name="inputNameSurname"></param>
         private void SetContactNameSurname(string inputNameSurname)
         {
-            //var matches = Regex.Matches(inputNameSurname, @"^\p{Lu}\p{Ll}+");
             var firstPart = inputNameSurname.Split(' ')[0];
             var secondPart = inputNameSurname.Replace(" ", "").Replace(firstPart, "");
-            //var firstPart = matches[0].Value;
-            //var secondPart = matches[1].Value;
             if (listOfPolishNames.Contains(firstPart))
             {
                 name = firstPart;
