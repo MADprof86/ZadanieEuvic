@@ -19,7 +19,6 @@ namespace ZadanieEuvic
         /// <summary>
         /// Contact class with special list to determine if the string is a polish name
         /// </summary>
-       
 
         public Contact(string inputNameSurname) 
         {

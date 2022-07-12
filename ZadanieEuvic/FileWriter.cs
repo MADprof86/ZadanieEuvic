@@ -26,7 +26,6 @@ namespace ZadanieEuvic
                 var streamWriter = new StreamWriter(nameOfFile);
                 listToWrite.ForEach(x =>
                 {
-                    
                     streamWriter.WriteLine(x.GiveNameSurname());
                 });
                 streamWriter.Close();

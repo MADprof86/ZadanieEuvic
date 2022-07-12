@@ -20,7 +20,11 @@ namespace ZadanieEuvic
             Console.ReadKey();
             do
             {
-                if (listOfContacts.Count > 0) listOfContacts.OrderByDescending(x=>x);
+                if (listOfContacts.Count > 0)
+                {
+                    listOfContacts.Sort();
+                    listOfContacts.Reverse();
+                }
                 inputCommand = "";
                 Console.Clear();
                 Console.WriteLine("Open\t - open given file and write contacts" +
