@@ -31,6 +31,11 @@ namespace ZadanieEuvic
                 streamWriter.Close();
                 Console.WriteLine("File Written succesfully");
             }
+            catch(ArgumentNullException e)
+            {
+                Console.WriteLine(e.Message);
+                Console.ReadKey();
+            }
             catch(Exception e)
             {
                 Console.WriteLine(e.Message);

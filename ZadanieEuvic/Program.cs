@@ -89,9 +89,16 @@ namespace ZadanieEuvic
                         ContactListSorter();
                         Console.WriteLine("Write file name. If the file is not empty, the contacts will be written in the end of the file.");
                         var filePath = StringTrimmer(Console.ReadLine());
-                        new FileWriter().WriteListToFile(listOfContacts, filePath);
-                        Console.ReadKey();
-
+                        try
+                        {
+                            new FileWriter().WriteListToFile(listOfContacts, filePath);
+                            Console.ReadKey();
+                        }
+                        catch(ArgumentNullException e)
+                        {
+                            Console.WriteLine(e.Message);
+                            Console.ReadKey();
+                        }
                     }
                 }
                 else if(StringTrimmer(inputCommand) == "delete")
