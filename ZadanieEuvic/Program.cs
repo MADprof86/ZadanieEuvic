@@ -107,7 +107,7 @@ namespace ZadanieEuvic
                     Console.WriteLine("List cleared.");
 
                 }
-                } while (inputCommand.ToLower() != "x");
+                } while (StringTrimmer(inputCommand) != "x");
             Console.WriteLine("Aplication terminated");
         }
     }
