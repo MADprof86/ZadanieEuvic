@@ -10,6 +10,23 @@ namespace ZadanieEuvic
     {
         static List<Contact> listOfContacts = new List<Contact>();
         /// <summary>
+        /// Trims and lowers caracters of given string
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns>string</returns>
+        static string StringTrimmer(string input)
+        {
+            return input.ToLower().Trim();
+        }
+        /// <summary>
+        /// Sorts descending the main list of contacts
+        /// </summary>
+        static void ContactListSorter()
+        {
+            listOfContacts.Sort();
+            listOfContacts.Reverse();
+        }
+        /// <summary>
         /// Basic GUI
         /// </summary>
         /// <param name="args"></param>
@@ -20,11 +37,6 @@ namespace ZadanieEuvic
             Console.ReadKey();
             do
             {
-                if (listOfContacts.Count > 0)
-                {
-                    listOfContacts.Sort();
-                    listOfContacts.Reverse();
-                }
                 inputCommand = "";
                 Console.Clear();
                 Console.WriteLine("Open\t - open given file and write contacts" +
@@ -34,10 +46,10 @@ namespace ZadanieEuvic
                     "\nX\t - close aplication");
                 Console.WriteLine("Enter command:");
                 inputCommand = Console.ReadLine();
-                if(inputCommand.ToLower() == "open")
+                if(StringTrimmer(inputCommand) == "open")
                 {
                     Console.WriteLine("Write path to file");
-                    var filePath = Console.ReadLine().ToLower();
+                    var filePath = StringTrimmer(Console.ReadLine());
                     try
                     {
                         var contactString = new FileReader().ReadGivenFile(filePath);
@@ -50,7 +62,7 @@ namespace ZadanieEuvic
                     Console.WriteLine("Press any key...");
                     Console.ReadKey();
                 }
-                else if (inputCommand.ToLower() == "list")
+                else if (StringTrimmer(inputCommand) == "list")
                 {
                     if (listOfContacts.Count == 0)
                     {
@@ -58,12 +70,13 @@ namespace ZadanieEuvic
                     }
                     else
                     {
+                        ContactListSorter();
                         listOfContacts.ForEach(x => Console.WriteLine(x.GiveNameSurname()));
                     }
                     Console.WriteLine("Press any key...");
                     Console.ReadKey();
                 }
-                else if(inputCommand.ToLower() == "write")
+                else if(StringTrimmer(inputCommand) == "write")
                 {
                     if (listOfContacts.Count == 0)
                     {
@@ -73,14 +86,15 @@ namespace ZadanieEuvic
                     }
                     else
                     {
+                        ContactListSorter();
                         Console.WriteLine("Write file name. If the file is not empty, the contacts will be written in the end of the file.");
-                        var filePath = Console.ReadLine().ToLower();
+                        var filePath = StringTrimmer(Console.ReadLine());
                         new FileWriter().WriteListToFile(listOfContacts, filePath);
                         Console.ReadKey();
 
                     }
                 }
-                else if(inputCommand.ToLower() == "delete")
+                else if(StringTrimmer(inputCommand) == "delete")
                 {
                     listOfContacts.Clear();
                     Console.WriteLine("List cleared.");
