@@ -23,7 +23,7 @@ namespace ZadanieEuvic
             if (string.IsNullOrWhiteSpace(nameOfFile)) throw new ArgumentNullException("The path to file is empty");
             try
             {
-                var streamWriter = new StreamWriter(nameOfFile);
+                var streamWriter = new StreamWriter(nameOfFile, append: true);
                 listToWrite.ForEach(x =>
                 {
                     streamWriter.WriteLine(x.GiveNameSurname());
