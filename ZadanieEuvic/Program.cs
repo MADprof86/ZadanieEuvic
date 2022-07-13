@@ -105,9 +105,8 @@ namespace ZadanieEuvic
                 {
                     listOfContacts.Clear();
                     Console.WriteLine("List cleared.");
-
                 }
-                } while (StringTrimmer(inputCommand) != "x");
+            } while (StringTrimmer(inputCommand) != "x");
             Console.WriteLine("Aplication terminated");
         }
     }

@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Text.RegularExpressions;
-using System.Collections;
+
 
 namespace ZadanieEuvic
 {
@@ -19,8 +17,7 @@ namespace ZadanieEuvic
         /// <summary>
         /// Contact class with special list to determine if the string is a polish name
         /// </summary>
-
-        public Contact(string inputNameSurname) 
+        public Contact(string inputNameSurname)
         {
             if (listOfPolishNames.Count() < 1)
             {
@@ -54,14 +51,13 @@ namespace ZadanieEuvic
             {
                 name = firstPart;
                 surname = secondPart;
-            } 
+            }
             else
             {
                 name = secondPart;
                 surname = firstPart;
             }
         }
-
         /// <summary>
         /// IComparaTo method
         /// </summary>
@@ -74,7 +70,7 @@ namespace ZadanieEuvic
             else
             {
                 if (contact.name.CompareTo(this.surname) == -1) return -1;
-                else if(contact.name.CompareTo(this.name) == 1) return 1;
+                else if (contact.name.CompareTo(this.name) == 1) return 1;
                 else return 0;
             }
         }

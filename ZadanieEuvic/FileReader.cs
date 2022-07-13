@@ -37,11 +37,9 @@ namespace ZadanieEuvic
                     Console.WriteLine(e.Message);
                     Console.WriteLine("File missing or can't open given file.");
                 }
-
                 return fileStream;
             }
             else throw new ArgumentNullException("No path to file given");
-
         }
     }
 }
